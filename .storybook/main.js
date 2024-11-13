@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   staticDirs: ['../public'],
   stories: ['../src/components/**/stories.tsx'],
   addons: ['@storybook/addon-essentials'],
@@ -6,13 +6,11 @@ const config = {
     name: '@storybook/nextjs',
     options: {}
   },
-  docs: {
-    autodocs: true
+  core: {
+    builder: 'webpack5'
   },
   webpackFinal: (config) => {
     config.resolve.modules.push(`${process.cwd()}/src`)
     return config
   }
 }
-
-export default config
